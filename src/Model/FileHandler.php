@@ -41,6 +41,9 @@ class FileHandler
     {
         $data = [];
         foreach ($files as $fileName) {
+            if ($fileName === 'file.csv') {
+                continue;
+            }
             $file = fopen($pathToCSVs. DIRECTORY_SEPARATOR . $fileName, 'rb');
             while (($getData = fgetcsv($file, 10000, ',')) !== FALSE) {
                 $data[] = $getData;
@@ -51,6 +54,9 @@ class FileHandler
 
     public function saveCsv(array $formattedDataArray, $pathToSave)
     {
+        if (file_exists($pathToSave. DIRECTORY_SEPARATOR . 'file.csv')) {
+            unlink($pathToSave. DIRECTORY_SEPARATOR . 'file.csv');
+        }
         $fp = fopen($pathToSave. DIRECTORY_SEPARATOR . 'file.csv', 'wb');
 
         foreach ($formattedDataArray as $fields) {
