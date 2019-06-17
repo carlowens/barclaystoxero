@@ -18,7 +18,7 @@ class ConvertToXeroCsvCommand extends Command
     {
         $this
             ->setDescription('Converts Barclays Business CSV statements to Xero format for import')
-            ->addArgument('pathToCSVs', InputArgument::OPTIONAL, 'Path where barlcays CSVs')
+            ->addArgument('pathToCSVs', InputArgument::OPTIONAL, 'Path where barlclays CSVs')
             ->addArgument('savePath', InputArgument::OPTIONAL, 'Save Xero formatted CSV')
         ;
     }
